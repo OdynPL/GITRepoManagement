@@ -1,13 +1,14 @@
-﻿using GitIssueManager.Core.Interfaces;
+﻿using GitIssueManager.API.DTO;
+using GitIssueManager.Core.Interfaces;
 using GitIssueManager.Core.Models;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Load tokens
-var gitHubToken = builder.Configuration["GitTokens:GitHubToken"];
-var gitLabToken = builder.Configuration["GitTokens:GitLabToken"];
+builder.Services.Configure<GitTokensOptions>(builder.Configuration.GetSection("GitTokens"));
 
 // Register HTTP Client
 builder.Services.AddHttpClient();
@@ -19,13 +20,15 @@ builder.Services.AddSingleton<IHttpHelperService, HttpHelperService>();
 builder.Services.AddTransient<GitHubService>(sp =>
 {
     var httpHelper = sp.GetRequiredService<IHttpHelperService>();
-    return new GitHubService(httpHelper, gitHubToken);
+    var gitTokens = sp.GetRequiredService<IOptions<GitTokensOptions>>().Value;
+    return new GitHubService(httpHelper, gitTokens.GitHubToken);
 });
 
 builder.Services.AddTransient<GitLabService>(sp =>
 {
     var httpHelper = sp.GetRequiredService<IHttpHelperService>();
-    return new GitLabService(httpHelper, gitLabToken);
+    var gitTokens = sp.GetRequiredService<IOptions<GitTokensOptions>>().Value;
+    return new GitLabService(httpHelper, gitTokens.GitLabToken);
 });
 
 // Register factory for IGitService by enum
