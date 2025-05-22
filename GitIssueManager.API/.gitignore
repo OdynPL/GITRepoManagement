@@ -1,0 +1,33 @@
+# Build results
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio working folder
+.vs/
+
+# Others
+*.log
+*.tlog
+*.cache
+*.dbmdl
+*.pdb
+
+# IIS Express
+.vsconfig
+/.vs/
+
+# Rider
+.idea/
+*.sln.iml
+
+# ASP.NET secrets
+**/secrets.json
+
+# Configuration files
+appsettings.Development.json
