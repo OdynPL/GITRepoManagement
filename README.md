@@ -3,6 +3,7 @@
 Project structure:
 - GitIssueManager.API
 - GitIssueManager.Core
+- GitIssueManager.Core (Some Unit Tests using xUnit for services)
 
 Project preparad with Swagger and works currently for GitHUB and GitLab (other may be add also)
 
