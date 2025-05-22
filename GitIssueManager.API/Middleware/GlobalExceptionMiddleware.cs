@@ -1,6 +1,4 @@
 ﻿using System.Net;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
 using System.Text.Json;
 
 public class GlobalExceptionMiddleware
@@ -30,7 +28,7 @@ public class GlobalExceptionMiddleware
             var title = "Internal Server Error";
             var detail = ex.Message;
 
-            // Przykład rozpoznania wyjątków (możesz dopasować własne typy)
+            // Handle basic HTTP responses
             if (ex is HttpRequestException)
             {
                 statusCode = HttpStatusCode.BadGateway;
@@ -41,7 +39,6 @@ public class GlobalExceptionMiddleware
                 statusCode = HttpStatusCode.BadRequest;
                 title = "Bad Request";
             }
-            // Dodaj kolejne wyjątki wg potrzeb
 
             context.Response.StatusCode = (int)statusCode;
 

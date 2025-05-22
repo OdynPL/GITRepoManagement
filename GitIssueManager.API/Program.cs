@@ -1,7 +1,6 @@
 ﻿using GitIssueManager.API.DTO;
 using GitIssueManager.Core.Interfaces;
 using GitIssueManager.Core.Models;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using System.Text.Json.Serialization;
 
@@ -36,8 +35,8 @@ builder.Services.AddSingleton<Func<GitServiceType, IGitService>>(sp => key =>
 {
     return key switch
     {
-        GitServiceType.github => sp.GetRequiredService<GitHubService>(),
-        GitServiceType.gitlab => sp.GetRequiredService<GitLabService>(),
+        GitServiceType.GitHub => sp.GetRequiredService<GitHubService>(),
+        GitServiceType.GitLab => sp.GetRequiredService<GitLabService>(),
         _ => throw new NotSupportedException($"Git service type {key} is not supported.")
     };
 });
