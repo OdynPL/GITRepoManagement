@@ -8,6 +8,7 @@ Project preparad with Swagger and works currently for GitHUB and GitLab (other m
 
 **Please configure git tokens inside "appsettings.json" of API**
 
+```
 {
     "Logging": {
         "LogLevel": {
@@ -22,6 +23,7 @@ Project preparad with Swagger and works currently for GitHUB and GitLab (other m
         "GitLabToken": "glpat-GYFtmdhPq8SJeQWxonrm"
     }
 }
+```
 
 Or use mine if needed (for testing)
 
