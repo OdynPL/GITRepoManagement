@@ -112,12 +112,14 @@
     <Reference Include="Microsoft.Analytics.Types" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IHttpHelperService.cs" />
     <Compile Include="Interfaces\IGitService.cs" />
     <Compile Include="Models\GitServiceType.cs" />
     <Compile Include="Models\ProjectIssue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\GitHubService.cs" />
     <Compile Include="Services\GitLabService.cs" />
+    <Compile Include="Services\HttpHelperService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
