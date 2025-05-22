@@ -42,6 +42,14 @@ Please run API and go to Swagger page: **http://localhost:5254/swagger/index.htm
 
 **Select one of 3 end points of our API:**
 
+For GitHUB and GitLab You have to provide owner/group name which is for example "OdynPL"
+Repository name like "TestREPO"
+Issue/ticket ID which can be found inside #22 number.
+
+![image](https://github.com/user-attachments/assets/0ca1f6c6-4f4f-4e14-8965-0c25efb0f723)
+
+
+
 1. Add new issue (POST)
    
 ![image](https://github.com/user-attachments/assets/33ba9e8c-956b-4283-b66b-721bb856d04d)
